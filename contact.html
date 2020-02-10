@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
@@ -101,78 +102,74 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">How can I help you?</h3>
-    
-      
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                          title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fa fa-times"></i></button>
-                </div>
               </div>
               <!-- /.box-body -->
             </div>
             <!-- /.box -->
             
 
-            <form role="form">
-               <div class="box-body">
-                  <!-- subject -->
+            <div class="col-md-6">
+              <form action="">
                   <div class="form-group">
-                    <label for="topic">Subject</label>
-                    <input type="text" class="form-control" id="Subject" placeholder="Enter Subject">
+                      <label for="">Name</label>
+                      <input type="text" id="name" class="form-control" placeholder="Subject...">
                   </div>
-                  
-                  <!-- massage -->
                   <div class="form-group">
-                    <label>Massage</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                      <label for="">Email</label>
+                      <input type="email" id="email" class="form-control" placeholder="mail...">
                   </div>
-
-                  <!-- name -->
                   <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                      <label for="">Messege</label>
+                      <textarea type="text" id="messege" class="form-control" placeholder="enter..."></textarea>
                   </div>
-
-                  <!-- phone -->
                   <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Enter Phone Number">
+                      <label for="">Gender</label>
+                          <div id="gender">
+                              <label style="margin-right: 5px;">
+                                  <input type = "radio" name="gender" value = "male" id="male"> Male
+                              </label>
+                              <label style="margin-right: 5px;">
+                                  <input type = "radio" name="gender" value = "female" id="female"> Female
+                              </label>
+                              <label>
+                                  <input type = "radio" name="gender" value = "unknow" id="unknow" checked> Undefined
+                              </label>
+                          </div>
                   </div>
+              </form>
+              <button class="btn btn-success" id="save" style="margin-right: 10px;">Save</button>
+              <button class="btn btn-warning" id="reset">Reset</button>
+            </div>
 
-                  <!-- email -->
-                 <div class="form-group">
-                   <label for="exampleInputEmail1">Email address</label>
-                   <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                 </div>
-
-                 <!-- gender -->
-                 <div class="row">
-                     <div class="col-lg-3 col-xs-3">
-                        <input type = "radio" name = "gender" value = "Male"> Male
-                     </div>
-                     <div class="col-lg-3 col-xs-3">
-                        <input type = "radio" name = "gender" value = "Male"> Female
-                     </div>
+            <div class="col-md-6">
+              <div class="card text-white bg-dark mb-3">
+                  <div class="card-header">
+                      <h3 class="card-title">Users</h3>
                   </div>
+                  <div class="card-body">
+                      <table class="table text-white">
+                          <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Mail</th>
+                                  <th>Gender</th>
+                                  <th></th>
+                              </tr>
+                          </thead>
 
-                  <!-- file -->
-                 <div class="form-group">
-                   <label for="exampleInputFile" style="margin-top: 10px;">File input</label>
-                   <input type="file" id="exampleInputFile">
- 
-                   <p class="help-block">Select file</p>
-                 </div>
+                          <tbody>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="card-footer">
+                      <h5 class="male"></h5>
+                      <h5 class="female"></h5>
+                      <h5 class="udf"></h5>
+                  </div>
+              </div>
+            </div>
 
-               </div>
-               <!-- /.box-body -->
- 
-               <div class="box-footer">
-                 <button type="submit" class="btn btn-primary">Submit</button>
-               </div>
-            </form>
+            <canvas id="myChart" style="margin-top: 10px;"></canvas>
             
 
 
@@ -190,6 +187,8 @@
         </footer>
     </div>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <!-- jQuery 3 -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -208,6 +207,17 @@
 
     <!-- AdminLTE App -->
     <script src="./dist/js/adminlte.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+    <script src="./contact.js"></script>
 
 
 
