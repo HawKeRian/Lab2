@@ -38,7 +38,7 @@ $('#save').on('click', () => {
             return result;
         }        
         const atList = findAllElem(email,'@');
-        if (atList.length != 1) return alert('your email is invalid!');
+        if (atList.length != 1) return alert('your email is invalid');
 
 
 
