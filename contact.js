@@ -21,10 +21,27 @@ $('#save').on('click', () => {
     else if($('#messege').val() == ''){
         $('#messege').focus()
         return this.Error}
-    else if($('#email').val() ==''){
-        $('#email').focus()
-        return this.Error
-    }
+
+        const email = $('#email').val();
+        //ASCII check
+        const asciiCheck = (email.split('')).every((char)=>{ 
+            return char.charCodeAt(0) >= 0 && char.charCodeAt(0) <= 127
+        });
+        if (!asciiCheck) return false;
+
+        //Number of @ check
+        function findAllElem(src, elem) {
+            let result = [];
+            for (i in src) {
+                if (src[i] == elem) result.push(i);
+            }
+            return result;
+        }        
+        const atList = findAllElem(email,'@');
+        if (atList.length != 1) return alert('your email is invalid!');
+
+
+
     db.collection("users").add({
         name: $('#name').val(),
         mail: $('#email').val(),
